@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+An SPI-controlled PWM peripheral. The design operates at **10 MHz** and uses SPI communication at **\~100 KHz** to configure registers that control output enables, PWM enables, and duty cycles. The system comprises two main modules: an **SPI Peripheral** for register management and a **PWM Peripheral** for signal generation.
 
 ## How to test
 
