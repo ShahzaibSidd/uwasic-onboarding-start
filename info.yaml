@@ -1,14 +1,19 @@
 # Tiny Tapeout project information
 project:
-  title: "ASIC Onboarding Project - Shahzaib Siddiqui"  
-  author: "SHahzaib Siddiqui"  
-  description: "SPI-controlled PWM peripheral for Tiny Tapeout."  
-  top_module: "tt_um_uwasic_onboarding_shahzaib"  # Match your top module name  
+  title:            "ASIC Onboarding Project - Shahzaib Siddiqui"  
+  author:           "SHahzaib Siddiqui"  
+  description:      "SPI-controlled PWM peripheral for Tiny Tapeout."  
+  language:         "Verilog"
+  clock_hz:         0
+  
+  top_module:       "tt_um_uwasic_onboarding_shahzaib"  # Match your top module name  
+  
+  tiles:            "1x1"
+
   source_files:  
     - spi_peripheral.v
     - pwm_peripheral.v  
     - project.v
-  tiles: "1x1"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
