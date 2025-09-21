@@ -13,8 +13,10 @@ An SPI-controlled PWM peripheral. The design operates at **10 MHz** and uses SPI
 
 ## How to test
 
-Explain how to use your project
+cd test/
+make -B
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+- fpga
+- SPI peripheral

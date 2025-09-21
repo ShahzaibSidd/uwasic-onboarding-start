@@ -113,7 +113,6 @@ module spi_peripheral (
     end
     
     wire sclk_rising = (sclk_sync == 1'b1) && (sclk_meta == 1'b0);
-
     wire ncs_rising = (ncs_sync == 1'b1) && (ncs_meta == 1'b0);
     wire ncs_falling = (ncs_sync == 1'b0) && (ncs_meta == 1'b1);
 
