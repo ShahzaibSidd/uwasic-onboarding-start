@@ -80,7 +80,7 @@ module spi_peripheral (
                 end
             end else begin
                 if (ncs_rising) begin
-                    if ((read_write_bit == 1'b1) && (address >= 7'b0000101)) begin
+                    if ((read_write_bit == 1'b1) && (address <= 7'b0000101)) begin
                         case (address)
                             7'b00: en_reg_out_7_0 <= serial_data;
                             7'b01: en_reg_out_15_8 <= serial_data;
@@ -112,9 +112,9 @@ module spi_peripheral (
 
     end
     
-    wire sclk_rising = (sclk_sync == 1'b1) && (sclk_meta == 1'b0);
-    wire ncs_rising = (ncs_sync == 1'b1) && (ncs_meta == 1'b0);
-    wire ncs_falling = (ncs_sync == 1'b0) && (ncs_meta == 1'b1);
+    wire sclk_rising = (sclk_sync == 1'b0) && (sclk_meta == 1'b1);
+    wire ncs_falling = (ncs_sync == 1'b1) && (ncs_meta == 1'b1);
+    wire ncs_rising = (ncs_sync == 1'b0) && (ncs_meta == 1'b1);
 
 
 
