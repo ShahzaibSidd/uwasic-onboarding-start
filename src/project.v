@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Your Name
+ * Copyright (c) 2024 Shahzaib Siddiqui
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -22,8 +22,21 @@ module tt_um_uwasic_onboarding_shahzaib (
   wire [7:0] en_reg_out_7_0;
   wire [7:0] en_reg_out_15_8;
   wire [7:0] en_reg_pwm_7_0;
-  wire [7:0] en_reg_pwm_7_0;
+  wire [7:0] en_reg_pwm_15_8;
   wire [7:0] pwm_duty_cycle;
+
+  spi_peripheral spi_peripheral_ist (
+    .clk(clk),
+    .rst_n(rst_n),
+    .copi(ui_in[1]),
+    .ncs(ui_in[2]),
+    .sclk(ui_in[0]),
+    .en_reg_out_7_0(en_reg_out_7_0),
+    .en_reg_out_15_8(en_reg_out_15_8),
+    .en_reg_pwm_7_0(en_reg_pwm_7_0),
+    .en_reg_pwm_15_8(en_reg_pwm_15_8),
+    .pwm_duty_cycle(pwm_duty_cycle)
+  );
 
   pwm_peripheral pwn_peripheral_ist (
     .clk(clk),
@@ -34,12 +47,7 @@ module tt_um_uwasic_onboarding_shahzaib (
     .en_reg_pwm_15_8(en_reg_pwm_15_8),
     .pwm_duty_cycle(pwm_duty_cycle),
     .out({uio_out, uo_out})
-  )
-
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
+  );
 
   // List all unused inputs to prevent warnings
   wire _unused = &{ena, ui_in[7:3], uio_in, 1'b0};
